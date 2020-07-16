@@ -20,6 +20,6 @@ public class Student {
         }
 
         Student anthor = (Student) student;
-        return this.name.equals(anthor.name);
+        return this.name.toLowerCase().equals(anthor.name.toLowerCase());
     }
 }
