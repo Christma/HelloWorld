@@ -7,11 +7,19 @@ public class Student {
         this.name = name;
     }
 
-    public String getName() {
-        return name;
-    }
+    @Override
+    public boolean equals(Object student) {
+        if (this == student) {
+            return true;
+        }
+        if (student == null) {
+            return false;
+        }
+        if (this.getClass() != student.getClass()) {
+            return false;
+        }
 
-    public void setName(String name) {
-        this.name = name;
+        Student anthor = (Student) student;
+        return this.name.equals(anthor.name);
     }
 }
