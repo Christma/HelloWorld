@@ -2,14 +2,17 @@ package cn.java.LinearSearch;
 
 public class Main {
     public static void main(String[] args) {
-        Integer[] datas = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0,9,9};
-        System.out.println(LinearSearch.search(datas, 6));
-
-        Student[] students = {new Student("chuanmu"), new Student("Bobo"), new Student("Alice")};
-        Student student = new Student("chuanmu");
-
-        System.out.println(LinearSearch.search(students, student));
-
+        int[] dataSize = {10000, 100000, 1000000, 10000000};
+        for (int n : dataSize) {
+            Integer[] datas = ArrayGenerator.generatorOrderArray(n);
+            long startTime = System.nanoTime();
+            for (int i = 0; i < 100; i++) {
+                LinearSearch.search(datas, n);
+            }
+            long endTime = System.nanoTime();
+            double time = (endTime - startTime) / 1000000000.0;
+            System.out.println("n = " + n + ", 100 runs : " + time + " s");
+        }
     }
 
 }
