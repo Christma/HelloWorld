@@ -25,18 +25,8 @@ public class SelectionSort {
     }
 
     public static void main(String[] args) {
-        Integer[] data = {1, 4, 2, 3, 5};
-        String[] str = {"a", "z", "t", "b", "q"};
-        SelectionSort.sort(str);
-        for (int i = 0; i < str.length; i++) {
-            System.out.println(str[i]);
-        }
-
-        Student[] students = {new Student("Bobo", 100), new Student("chuanmu", 88), new Student("zhangsan", 98)};
-        SelectionSort.sort(students);
-        for (Student s : students) {
-            System.out.println(s);
-        }
-
+        int n = 10000;
+        Integer[] data = ArrayGenerator.generatorRandomArray(n, n);
+        SortingHelper.testSorted("SelectionSort", data);
     }
 }

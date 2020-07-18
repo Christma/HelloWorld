@@ -36,4 +36,10 @@ public class Student implements Comparable<Student> {
 //        }
         return this.score - another.score;
     }
+
+    @Override
+    public String toString() {
+        return String.format("Student(name: %s, score: %d)", name, score);
+    }
+
 }
