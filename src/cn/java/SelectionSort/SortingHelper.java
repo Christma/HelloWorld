@@ -1,5 +1,7 @@
 package cn.java.SelectionSort;
 
+import cn.java.InsertSort.InsertSort;
+
 public class SortingHelper {
     private SortingHelper() {
     }
@@ -19,6 +21,12 @@ public class SortingHelper {
             SelectionSort.sort(arr);
         } else if (sortName.equals("SelectionSortpre")) {
             SelectionSort.preOrder(arr);
+        } else if (sortName.equals("InsertSort")) {
+            InsertSort.sort(arr);
+        } else if (sortName.equals("InsertSort2")) {
+            InsertSort.sort2(arr);
+        }else if (sortName.equals("InsertSortPre2")) {
+            InsertSort.sortPre2(arr);
         }
         long endTime = System.nanoTime();
         double time = (endTime - startTime) / 1000000000.0;
