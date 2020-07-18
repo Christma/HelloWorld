@@ -53,11 +53,11 @@ public class InsertSort {
     }
 
     public static void main(String[] args) {
-        int[] nums = {10000};
+        int[] nums = {10000,100000};
         for (int n : nums) {
             Integer[] data = ArrayGenerator.generatorRandomArray(n, n);
             Integer[] data2 = Arrays.copyOf(data, n);
-            SortingHelper.testSorted("InsertSort", data);
+//            SortingHelper.testSorted("InsertSort", data);
             SortingHelper.testSorted("InsertSort2", data2);
             SortingHelper.testSorted("InsertSortPre2", data2);
 
