@@ -17,6 +17,8 @@ public class SortingHelper {
         long startTime = System.nanoTime();
         if (sortName.equals("SelectionSort")) {
             SelectionSort.sort(arr);
+        } else if (sortName.equals("SelectionSortpre")) {
+            SelectionSort.preOrder(arr);
         }
         long endTime = System.nanoTime();
         double time = (endTime - startTime) / 1000000000.0;
