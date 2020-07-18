@@ -3,6 +3,9 @@ package cn.java.InsertSort;
 import cn.java.SelectionSort.ArrayGenerator;
 import cn.java.SelectionSort.SortingHelper;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class InsertSort {
     private InsertSort() {
     }
@@ -20,6 +23,18 @@ public class InsertSort {
         }
     }
 
+    public static <E extends Comparable<E>> void sort2(E[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            E e = arr[i];
+            int j;
+            for (j = i; j > 0 && e.compareTo(arr[j - 1]) < 0; j--) {
+                arr[j] = arr[j - 1];
+            }
+            arr[j] = e;
+        }
+    }
+
+
     private static <E> void swap(E[] arr, int i, int j) {
         E temp = arr[i];
         arr[i] = arr[j];
@@ -30,7 +45,9 @@ public class InsertSort {
         int[] nums = {10000, 100000};
         for (int n : nums) {
             Integer[] data = ArrayGenerator.generatorRandomArray(n, n);
+            Integer[] data2 = Arrays.copyOf(data, n);
             SortingHelper.testSorted("InsertSort", data);
+            SortingHelper.testSorted("InsertSort2", data2);
         }
     }
 }
