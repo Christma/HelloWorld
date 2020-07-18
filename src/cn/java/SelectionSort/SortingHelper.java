@@ -23,6 +23,6 @@ public class SortingHelper {
         if (!SortingHelper.isSorted(arr)) {
             throw new RuntimeException(String.format("%s fail!", sortName));
         }
-        System.out.println(time + " s");
+        System.out.println(String.format("%s : 数据规模： %d ， 用时：%f", sortName, arr.length, time));
     }
 }
