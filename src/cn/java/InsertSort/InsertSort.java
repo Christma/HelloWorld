@@ -57,7 +57,7 @@ public class InsertSort {
         for (int n : nums) {
             Integer[] data = ArrayGenerator.generatorRandomArray(n, n);
             Integer[] data2 = Arrays.copyOf(data, n);
-//            SortingHelper.testSorted("InsertSort", data);
+            SortingHelper.testSorted("InsertSort", data);
             SortingHelper.testSorted("InsertSort2", data2);
             SortingHelper.testSorted("InsertSortPre2", data2);
 
