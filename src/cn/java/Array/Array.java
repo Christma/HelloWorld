@@ -28,18 +28,28 @@ public class Array {
     }
 
     public int get(int index) {
-        if (index < 0 || index > size) {
+        if (index < 0 || index >= size) {
             throw new IllegalArgumentException("index error");
         }
         return data[index];
     }
 
     public void set(int index, int e) {
-        if (index < 0 || index > size) {
+        if (index < 0 || index >= size) {
             throw new IllegalArgumentException("index error");
         }
         data[index] = e;
     }
+
+    public boolean contains(int e) {
+        for (int i = 0; i < size; i++) {
+            if (data[i] == e) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     public void addLast(int e) {
         add(size, e);
@@ -65,6 +75,41 @@ public class Array {
 
     }
 
+    public int find(int e) {
+        for (int i = 0; i < size; i++) {
+            if (data[i] == e) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public int remove(int index) {
+        if (index < 0 || index >= size) {
+            throw new IllegalArgumentException("index error");
+        }
+        int temp = data[index];
+        for (int i = index + 1; i < size; i++) {
+            data[i - 1] = data[i];
+        }
+        size--;
+        return temp;
+    }
+
+    public int removeFirst() {
+        return remove(0);
+    }
+
+    public int removeLast() {
+        return remove(size - 1);
+    }
+
+    public void removeElement(int e) {
+        int i = find(e);
+        if (i != -1) {
+            remove(i);
+        }
+    }
 
     @Override
     public String toString() {
