@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Array {
-    private int[] data;
+public class Array<E> {
+    private E[] data;
     private int size;
 
     public Array(int capacity) {
-        data = new int[capacity];
+        data = (E[]) new Object[capacity];
         size = 0;
     }
 
@@ -29,21 +29,21 @@ public class Array {
         return size == 0;
     }
 
-    public int get(int index) {
+    public E get(int index) {
         if (index < 0 || index >= size) {
             throw new IllegalArgumentException("index error");
         }
         return data[index];
     }
 
-    public void set(int index, int e) {
+    public void set(int index, E e) {
         if (index < 0 || index >= size) {
             throw new IllegalArgumentException("index error");
         }
         data[index] = e;
     }
 
-    public boolean contains(int e) {
+    public boolean contains(E e) {
         for (int i = 0; i < size; i++) {
             if (data[i] == e) {
                 return true;
@@ -53,16 +53,16 @@ public class Array {
     }
 
 
-    public void addLast(int e) {
+    public void addLast(E e) {
         add(size, e);
     }
 
-    public void addFirst(int e) {
+    public void addFirst(E e) {
         add(0, e);
     }
 
 
-    public void add(int index, int e) {
+    public void add(int index, E e) {
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("index error");
         }
@@ -77,7 +77,7 @@ public class Array {
 
     }
 
-    public int find(int e) {
+    public int find(E e) {
         for (int i = 0; i < size; i++) {
             if (data[i] == e) {
                 return i;
@@ -86,7 +86,7 @@ public class Array {
         return -1;
     }
 
-    public List<Integer> finds(int e) {
+    public List<Integer> finds(E e) {
         List<Integer> list = new ArrayList<>();
         for (int i = 0; i < size; i++) {
             if (data[i] == e) {
@@ -96,7 +96,7 @@ public class Array {
         return list;
     }
 
-    public boolean removeElements(int e) {
+    public boolean removeElements(E e) {
         List<Integer> lists = new ArrayList<>();
         lists = finds(e);
         for (Integer i : lists) {
@@ -105,11 +105,11 @@ public class Array {
         return true;
     }
 
-    public int remove(int index) {
+    public E remove(int index) {
         if (index < 0 || index >= size) {
             throw new IllegalArgumentException("index error");
         }
-        int temp = data[index];
+        E temp = data[index];
         for (int i = index + 1; i < size; i++) {
             data[i - 1] = data[i];
         }
@@ -117,15 +117,15 @@ public class Array {
         return temp;
     }
 
-    public int removeFirst() {
+    public E removeFirst() {
         return remove(0);
     }
 
-    public int removeLast() {
+    public E removeLast() {
         return remove(size - 1);
     }
 
-    public void removeElement(int e) {
+    public void removeElement(E e) {
         int i = find(e);
         if (i != -1) {
             remove(i);
