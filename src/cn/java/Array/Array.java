@@ -27,6 +27,13 @@ public class Array {
         return size == 0;
     }
 
+    public int get(int index) {
+        if (index < 0 || index > size) {
+            throw new IllegalArgumentException("index error");
+        }
+        return data[index];
+    }
+
     public void addLast(int e) {
         add(size, e);
     }
@@ -57,6 +64,7 @@ public class Array {
         return "Array{" +
                 "data=" + Arrays.toString(data) +
                 ", size=" + size +
+                ", capacity=" + getCapacity() +
                 '}';
     }
 }
