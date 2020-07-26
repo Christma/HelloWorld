@@ -45,7 +45,7 @@ public class Array<E> {
 
     public boolean contains(E e) {
         for (int i = 0; i < size; i++) {
-            if (data[i] == e) {
+            if (data[i].equals(e)) {
                 return true;
             }
         }
@@ -89,7 +89,7 @@ public class Array<E> {
     public List<Integer> finds(E e) {
         List<Integer> list = new ArrayList<>();
         for (int i = 0; i < size; i++) {
-            if (data[i] == e) {
+            if (data[i].equals(e)) {
                 list.add(i);
             }
         }
