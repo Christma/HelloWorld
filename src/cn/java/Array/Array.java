@@ -1,6 +1,8 @@
 package cn.java.Array;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Array {
     private int[] data;
@@ -82,6 +84,25 @@ public class Array {
             }
         }
         return -1;
+    }
+
+    public List<Integer> finds(int e) {
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < size; i++) {
+            if (data[i] == e) {
+                list.add(i);
+            }
+        }
+        return list;
+    }
+
+    public boolean removeElements(int e) {
+        List<Integer> lists = new ArrayList<>();
+        lists = finds(e);
+        for (Integer i : lists) {
+            remove(i);
+        }
+        return true;
     }
 
     public int remove(int index) {
