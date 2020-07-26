@@ -1,5 +1,7 @@
 package cn.java.Array;
 
+import java.util.Arrays;
+
 public class Array {
     private int[] data;
     private int size;
@@ -49,4 +51,12 @@ public class Array {
 
     }
 
+
+    @Override
+    public String toString() {
+        return "Array{" +
+                "data=" + Arrays.toString(data) +
+                ", size=" + size +
+                '}';
+    }
 }
