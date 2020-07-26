@@ -34,6 +34,13 @@ public class Array {
         return data[index];
     }
 
+    public void set(int index, int e) {
+        if (index < 0 || index > size) {
+            throw new IllegalArgumentException("index error");
+        }
+        data[index] = e;
+    }
+
     public void addLast(int e) {
         add(size, e);
     }
