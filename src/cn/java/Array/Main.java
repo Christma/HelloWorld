@@ -11,5 +11,10 @@ public class Main {
 
         arr.add(2, -1);
         System.out.println(arr);
+
+        arr.remove(2);
+        System.out.println(arr);
+        arr.remove(10);
+        System.out.println(arr);
     }
 }
