@@ -117,7 +117,7 @@ public class Array<E> {
 
 
     public E remove(int index) {
-        if (index < 0 || index >= size) {
+        if (index < 0 || index > size) {
             throw new IllegalArgumentException("index error");
         }
         E temp = data[index];
@@ -126,6 +126,10 @@ public class Array<E> {
         }
         size--;
         data[size] = null;
+
+        if (size < data.length / 2) {
+            resize(data.length / 2);
+        }
         return temp;
     }
 
