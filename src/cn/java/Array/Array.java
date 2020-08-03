@@ -3,6 +3,7 @@ package cn.java.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class Array<E> {
     private E[] data;
@@ -67,13 +68,22 @@ public class Array<E> {
             throw new IllegalArgumentException("index error");
         }
         if (size == getCapacity()) {
-            throw new IllegalArgumentException("array is full");
+            resize(2 * data.length);
         }
         for (int i = size - 1; i >= index; i--) {
             data[i + 1] = data[i];
         }
         data[index] = e;
         size++;
+
+    }
+
+    private void resize(int newCapacity) {
+        E[] newData = (E[]) new Objects[newCapacity];
+        for (int i = 0; i < size; i++) {
+            newData[i] = data[i];
+        }
+        data = newData;
 
     }
 
@@ -104,9 +114,6 @@ public class Array<E> {
         }
         return true;
     }
-
-
-
 
 
     public E remove(int index) {
