@@ -105,6 +105,7 @@ public class Array<E> {
         return true;
     }
 
+
     public E remove(int index) {
         if (index < 0 || index >= size) {
             throw new IllegalArgumentException("index error");
