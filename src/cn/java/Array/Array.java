@@ -114,6 +114,7 @@ public class Array<E> {
             data[i - 1] = data[i];
         }
         size--;
+        data[size] = null;
         return temp;
     }
 
