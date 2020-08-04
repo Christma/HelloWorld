@@ -9,6 +9,7 @@ public class Main {
         }
         System.out.println(arr);
 
+
         arr.add(2, -1);
         System.out.println(arr);
 
