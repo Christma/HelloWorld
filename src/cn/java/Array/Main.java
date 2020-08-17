@@ -17,5 +17,6 @@ public class Main {
         System.out.println(arr);
         arr.remove(10);
         System.out.println(arr);
+
     }
 }
