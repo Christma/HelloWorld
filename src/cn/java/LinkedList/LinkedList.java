@@ -106,4 +106,17 @@ public class LinkedList<E> {
         }
         return false;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        Node cur = dummyHead.next;
+        while (cur != null) {
+            sb.append(cur.e + "->");
+            cur = cur.next;
+        }
+        sb.append("NULL");
+        return sb.toString();
+    }
+
 }
