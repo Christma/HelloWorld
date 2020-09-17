@@ -91,5 +91,35 @@ public class LinkedListR<E> {
         return get(size - 1);
     }
 
+    public void set(int index, E e) {
+        if (index < 0 || index >= size) {
+            throw new IllegalArgumentException("Illegal index ");
+        }
+
+        set(head, index, e);
+
+    }
+
+    private void set(Node node, int index, E e) {
+        if (index == 0) {
+            node.e = e;
+        }
+
+        set(node.next, index - 1, e);
+    }
+
+    public boolean contains(E e) {
+        return contains(head, e);
+    }
+
+    private boolean contains(Node node, E e) {
+        if (node == null) {
+            return false;
+        }
+        if (node.e.equals(e)) {
+            return true;
+        }
+        return contains(node.next, e);
+    }
 
 }
