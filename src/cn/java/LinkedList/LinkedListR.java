@@ -1,5 +1,7 @@
 package cn.java.LinkedList;
 
+import javafx.util.Pair;
+
 public class LinkedListR<E> {
     private class Node {
         public E e;
@@ -121,5 +123,38 @@ public class LinkedListR<E> {
         }
         return contains(node.next, e);
     }
+
+    public E remove(int index) {
+        if (index < 0 || index >= size) {
+            throw new IllegalArgumentException("Illegal index ");
+        }
+
+        Pair<Node, E> res = remove(head, index);
+        size--;
+        head = res.getKey();
+        return res.getValue();
+    }
+
+    private Pair<Node, E> remove(Node node, int index) {
+        if (index == 0) {
+            return new Pair<>(node.next, node.e);
+        }
+        Pair<Node, E> res = remove(node.next, index - 1);
+        node.next = res.getKey();
+        return new Pair<>(node, res.getValue());
+    }
+
+    public E removeFirst() {
+        return remove(0);
+    }
+
+    public E removeLast() {
+        return remove(size - 1);
+    }
+
+
+
+
+
 
 }
