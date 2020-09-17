@@ -153,8 +153,33 @@ public class LinkedListR<E> {
     }
 
 
+    public void removeElement(E e) {
+        head = removeElement(head, e);
+    }
 
+    private Node removeElement(Node node, E e) {
+        if (node == null) {
+            return null;
+        }
 
+        node.next = removeElement(node.next, e);
+        if (node.e.equals(e)) {
+            size--;
+            return node.next;
+        }
+        return node;
+    }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
 
+        Node cur = head;
+        while (cur != null) {
+            sb.append(cur + " ->");
+            cur = cur.next;
+        }
+        sb.append("null");
+        return sb.toString();
+    }
 }
