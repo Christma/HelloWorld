@@ -19,7 +19,7 @@ public class MergeSort {
         if (l >= r) {
             return;
         }
-        int mid = (l + r) / 2;
+        int mid = l + (r - l) / 2;
         sort(arr, l, mid);
         sort(arr, mid + 1, r);
         merge(arr, l, mid, r);
@@ -54,7 +54,7 @@ public class MergeSort {
     public static void main(String[] args) {
         int[] nums = {10000, 100000};
         for (int n : nums) {
-            Integer[] data = ArrayGenerator.generatorRandomArray(n,n);
+            Integer[] data = ArrayGenerator.generatorRandomArray(n, n);
             SortingHelper.testSorted("Mergesort", data);
         }
 
