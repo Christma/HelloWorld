@@ -1,5 +1,7 @@
 package cn.java.MergeSort;
 
+import cn.java.SelectionSort.ArrayGenerator;
+
 import java.util.Arrays;
 
 public class MergeSort {
@@ -10,6 +12,18 @@ public class MergeSort {
 
     public static <E extends Comparable<E>> void sort(E[] arr) {
 
+        sort(arr, 0, arr.length - 1);
+    }
+
+    private static <E extends Comparable<E>> void sort(E[] arr, int l, int r) {
+        if (l >= r) {
+            return;
+        }
+        int mid = (l + r) / 2;
+        sort(arr, l, mid);
+        sort(arr, mid + 1, r);
+        merge(arr, l, mid, r);
+
     }
 
 
@@ -19,7 +33,7 @@ public class MergeSort {
         int i = l;
         int j = mid + 1;
 
-        for (int k = 0; k <= r; k++) {
+        for (int k = l; k <= r; k++) {
             if (i > mid) {
                 arr[k] = temp[j - l];
                 j++;
@@ -34,5 +48,15 @@ public class MergeSort {
                 j++;
             }
         }
+    }
+
+
+    public static void main(String[] args) {
+        int[] nums = {10000, 100000};
+        for (int n : nums) {
+            Integer[] data = ArrayGenerator.generatorRandomArray(n,n);
+            SortingHelper.testSorted("Mergesort", data);
+        }
+
     }
 }
