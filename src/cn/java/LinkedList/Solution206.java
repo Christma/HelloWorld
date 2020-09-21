@@ -1,7 +1,7 @@
 package cn.java.LinkedList;
 
 public class Solution206 {
-    public class ListNode {
+    public static class ListNode {
         int val;
         ListNode next;
 
@@ -22,5 +22,31 @@ public class Solution206 {
         return pre;
     }
 
+    public ListNode reverseList1(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        ListNode rev = reverseList1(head.next);
+        head.next.next = head;
+        head.next = null;
+        return rev;
+    }
+
+
+    public static void main(String[] args) {
+
+        ListNode a = new ListNode(1);
+        ListNode b = new ListNode(2);
+        ListNode c = new ListNode(3);
+        ListNode d = new ListNode(4);
+
+        a.next = b;
+        b.next = c;
+        c.next = d;
+        System.out.println(new Solution206().reverseList1(a));
+
+
+    }
 
 }
