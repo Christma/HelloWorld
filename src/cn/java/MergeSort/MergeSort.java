@@ -26,6 +26,25 @@ public class MergeSort {
 
     }
 
+    public static <E extends Comparable<E>> void sort2(E[] arr) {
+
+        sort2(arr, 0, arr.length - 1);
+    }
+
+    private static <E extends Comparable<E>> void sort2(E[] arr, int l, int r) {
+        if (l >= r) {
+            return;
+        }
+        int mid = l + (r - l) / 2;
+        sort2(arr, l, mid);
+        sort2(arr, mid + 1, r);
+        if (arr[mid].compareTo(arr[mid + 1]) > 0) {
+            merge(arr, l, mid, r);
+        }
+
+
+    }
+
 
     private static <E extends Comparable<E>> void merge(E[] arr, int l, int mid, int r) {
         E[] temp = Arrays.copyOfRange(arr, l, r + 1);
