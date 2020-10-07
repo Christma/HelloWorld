@@ -108,4 +108,22 @@ public class BST<E extends Comparable<E>> {
 
     }
 
+
+    public boolean contains(E e) {
+        return contains(root, e);
+    }
+
+    private boolean contains(Node root, E e) {
+        if (root == null) {
+            return false;
+        }
+        if (e.compareTo(root.e) == 0) {
+            return true;
+        } else if (e.compareTo(root.e) < 0) {
+            return contains(root.left, e);
+        } else {
+            return contains(root.right, e);
+        }
+    }
+
 }
