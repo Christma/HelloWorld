@@ -159,4 +159,51 @@ public class BST<E extends Comparable<E>> {
         }
     }
 
+    public E minimum() {
+        if (size == 0) {
+            throw new IllegalArgumentException("BST is empty!!");
+        }
+        return minimum(root).e;
+    }
+
+    private Node minimum(Node root) {
+        if (root.left == null) {
+            return root;
+        }
+        return minimum(root.left);
+    }
+
+
+    public E maximum() {
+        if (size == 0) {
+            throw new IllegalArgumentException("BST is empty!!");
+        }
+        return maximum(root).e;
+    }
+
+    private Node maximum(Node root) {
+        if (root.right == null) {
+            return root;
+        }
+        return maximum(root.right);
+    }
+
+
+    public Node removeMin() {
+        if (size == 0) {
+            throw new IllegalArgumentException("BST is empty!!");
+        }
+        return removeMin(root);
+    }
+
+    private Node removeMin(Node node) {
+        if (node.left == null) {
+            Node rightNode = node.right;
+            node.right = null;
+            size--;
+            return rightNode;
+        }
+        node.left = removeMin(node.left);
+        return node;
+    }
 }
