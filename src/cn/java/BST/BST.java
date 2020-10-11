@@ -1,5 +1,9 @@
 package cn.java.BST;
 
+
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BST<E extends Comparable<E>> {
 
     private class Node {
@@ -137,6 +141,22 @@ public class BST<E extends Comparable<E>> {
         System.out.println(node.e);
         preOrder(node.left);
         preOrder(node.right);
+    }
+
+    public void levelOrder(Node root) {
+        Queue<Node> queue = new LinkedList<>();
+
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            Node node = queue.poll();
+            System.out.println(node.e);
+            if (node.left != null) {
+                queue.add(node.left);
+            }
+            if (node.right != null) {
+                queue.add(node.right);
+            }
+        }
     }
 
 }
