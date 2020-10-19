@@ -1,31 +1,36 @@
 package cn.java.Set;
 
-public class BSTSet<E extends Comparable<E>> implements Set {
+public class BSTSet<E extends Comparable<E>> implements Set<E> {
 
-    private BSTSet bst;
+    private BST<E> bst;
 
-    @Override
-    public void add(Object o) {
 
+    public void BSTSet() {
+        bst = new BST<>();
     }
 
     @Override
-    public void remove(Object o) {
-
+    public void add(E e) {
+        bst.add(e);
     }
 
     @Override
-    public boolean contains(Object o) {
-        return false;
+    public void remove(E e) {
+        bst.remove(e);
+    }
+
+    @Override
+    public boolean contains(E e) {
+        return bst.contains(e);
     }
 
     @Override
     public int getSize() {
-        return 0;
+        return bst.size();
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return bst.isEmpty();
     }
 }
